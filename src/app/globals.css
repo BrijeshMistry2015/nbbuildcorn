@@ -177,6 +177,7 @@
   --common-gap-size: 1rem;
   --small-gap-size: 1.5rem;
   --medium-gap-size: 3rem;
+  --big-gap-size-48: 4rem;
   --big-gap-size: 6rem;
 }
 
@@ -241,6 +242,10 @@
 
 .regular-fonts {
   font-family: var(--regular-font-family) !important;
+}
+
+.neue-light-font {
+  font-family: var(--neue-light-font-family) !important;
 }
 
 .canela-light-font {
@@ -628,6 +633,10 @@ button:focus-visible {
   gap: var(--big-gap-size);
 }
 
+.inner-flex-big-48 {
+  gap: var(--big-gap-size-48);
+}
+
 .inner-flex-zero {
   gap: 0;
 }
@@ -830,7 +839,8 @@ button:focus-visible {
 .section-title h3,
 .section-title h2 {
   font-size: var(--section-title-font-size);
-  font-family: var(--bold-font-family);
+  font-family: var(--semibold-font-family);
+  letter-spacing: 3%;
 }
 
 .section-title h3 span,
@@ -909,7 +919,7 @@ button:focus-visible {
 .section-paragraph p span {
   font-size: var(--paragraph-font-size);
   line-height: 1.5;
-  color: var(--section-paregraph-color);
+  font-family: var(--neue-light-font-family);
 }
 
 /* .section-paragraph p span {

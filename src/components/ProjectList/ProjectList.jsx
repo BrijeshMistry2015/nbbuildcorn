@@ -31,97 +31,143 @@ function ProjectList({ projects }) {
     return (
         <section className="project-list-section section-padding-big">
             <div className="main-container-fluid">
-                <div className="project-list-container">
-                    {projectList.map((project, index) => {
-                        const title = project?.project_title || project?.project_name || "";
-                        const slug = project?.slug || project?.project_slug || "";
+                <div className="project-list-container inner-flex inner-flex-big-48">
+                    <div className="section-title">
+                        <h2>
+                            Ongoing Projects
+                        </h2>
+                    </div>
+                    <div>
+                        {projectList.map((project, index) => {
+                            const title = project?.project_title || project?.project_name || "";
+                            const slug = project?.slug || project?.project_slug || "";
 
-                        const image =
-                            project?.banner_data?.image_web_full ||
-                            project?.banners_data?.images?.[0]?.image_web_full ||
-                            project?.image_full ||
-                            "";
+                            const image =
+                                project?.banner_data?.image_web_full ||
+                                project?.banners_data?.images?.[0]?.image_web_full ||
+                                project?.image_full ||
+                                "";
 
-                        const description = getDescription(
-                            project?.big_text_pain ||
-                            project?.big_text ||
-                            project?.page_description ||
-                            ""
-                        );
+                            const getOriginalImage = (url) => {
+                                if (!url) return "";
 
-                        const possession = getHighlight(project, "status");
-                        const terrace = getHighlight(project, "terrace");
-                        const openSpace = getHighlight(project, "open space");
+                                try {
+                                    const parsedUrl = new URL(url);
 
-                        return (
-                            <div
-                                className="project-list-item"
-                                key={project?.project_id || project?.id || slug || index}
-                            >
-                                <div className="project-list-image">
-                                    {image && (
-                                        <img
-                                            src={image}
-                                            alt={title}
-                                            className="project-list-img"
-                                            width={1980}
-                                            height={900}
-                                        />
-                                    )}
-                                </div>
+                                    if (parsedUrl.pathname.includes("/image-tool/index.php")) {
+                                        return parsedUrl.searchParams.get("src") || url;
+                                    }
 
-                                <div className="project-list-details">
-                                    <div className="project-list-intro">
-                                        <h2>{title}</h2>
+                                    return url;
+                                } catch {
+                                    return url;
+                                }
+                            };
+                            const originalImage = getOriginalImage(image);
 
-                                        <p className="project-list-description">
-                                            {description}
-                                        </p>
-                                    </div>
+                            const description = getDescription(
+                                project?.big_text_pain ||
+                                project?.big_text ||
+                                project?.page_description ||
+                                ""
+                            );
 
-                                    <div className="project-list-info">
-                                        <div className="project-list-info-item">
-                                            <h3>{project?.size_price || project?.project_type || "Residential"}</h3>
-                                            <span>Type</span>
-                                        </div>
-
-                                        <div className="project-list-info-item">
-                                            <h3>{project?.location || "—"}</h3>
-                                            <span>Location</span>
-                                        </div>
-
-                                        {possession && (
-                                            <div className="project-list-info-item">
-                                                <h3>{possession.tag_line || possession.name}</h3>
-                                                <span>Status</span>
-                                            </div>
-                                        )}
-
-                                        {terrace && (
-                                            <div className="project-list-info-item">
-                                                <h3>{terrace.tag_line}</h3>
-                                                <span>{terrace.name}</span>
-                                            </div>
-                                        )}
-
-                                        {openSpace && (
-                                            <div className="project-list-info-item">
-                                                <h3>{openSpace.tag_line}</h3>
-                                                <span>{openSpace.name}</span>
-                                            </div>
+                            const possession = getHighlight(project, "status");
+                            const terrace = getHighlight(project, "terrace");
+                            const openSpace = getHighlight(project, "open space");
+                            return (
+                                <div
+                                    className="project-list-item"
+                                    key={project?.project_id || project?.id || slug || index}
+                                >
+                                    <div className="project-list-image">
+                                        {originalImage && (
+                                            <Image
+                                                src={originalImage}
+                                                alt={title}
+                                                className="project-list-img"
+                                                width={1980}
+                                                height={900}
+                                            />
                                         )}
                                     </div>
 
-                                    <Link
-                                        href={slug ? `/ project / ${slug}` : "/projects"}
-                                        className="project-list-explore"
-                                    >
-                                        Explore <span>→</span>
-                                    </Link>
+                                    <div className="project-list-details">
+                                        <div className="project-list-intro">
+                                            <div className="section-title">
+                                                <h2 className="secondary-color">{title}</h2>
+                                            </div>
+                                            <div className="section-paragraph">
+                                                <p className="project-list-description neue-light-font">
+                                                    {description}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="project-list-info">
+                                            <div className="project-list-info-item">
+                                                <div className="section-title">
+                                                    <h2>{project?.size_price || project?.project_type || "Residential"}</h2>
+                                                </div>
+                                                <div className="section-paragraph">
+                                                    <p>Type</p>
+                                                </div>
+                                            </div>
+
+                                            <div className="project-list-info-item">
+                                                <div className="section-title">
+                                                    <h2>{project?.location || "—"}</h2>
+                                                </div>
+                                                <div className="section-paragraph">
+                                                    <p>Location</p>
+                                                </div>
+                                            </div>
+
+                                            {possession && (
+                                                <div className="project-list-info-item">
+                                                    <div className="section-title">
+                                                        <h2>{possession.tag_line || possession.name}</h2>
+                                                    </div>
+                                                    <div className="section-paragraph">
+                                                        <p>Status</p>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {terrace && (
+                                                <div className="project-list-info-item">
+                                                    <div className="section-title">
+                                                        <h2>{terrace.tag_line}</h2>
+                                                    </div>
+                                                    <div className="section-paragraph">
+                                                        <p>{terrace.name}</p>
+                                                    </div>
+                                                </div>
+                                            )}
+
+                                            {openSpace && (
+                                                <div className="project-list-info-item">
+                                                    <div className="section-title">
+                                                        <h2>{openSpace.tag_line}</h2>
+                                                    </div>
+                                                    <div className="section-paragraph">
+                                                        <p>{openSpace.name}</p>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        <Link
+                                            href={slug ? `/ project / ${slug}` : "/projects"}
+                                            className="project-list-explore"
+                                        >
+                                            Explore <span>→</span>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </section>

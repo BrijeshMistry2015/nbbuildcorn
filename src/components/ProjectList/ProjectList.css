@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 
-.project-list-image img {
+/* .project-list-image img {
     filter: grayscale(100%);
     transition: filter 0.5s ease, transform 0.7s ease;
 }
@@ -22,7 +22,7 @@
 .project-list-item:hover .project-list-image img {
     filter: grayscale(0%);
     transform: scale(1.025);
-}
+} */
 
 .project-list-details {
     display: flex;
@@ -35,10 +35,6 @@
     width: 100%;
     padding-bottom: 28px;
     border-bottom: 1px solid #d9d9d9;
-}
-
-.project-list-intro h2 {
-    margin: 0 0 5px;
 }
 
 .project-list-description {
