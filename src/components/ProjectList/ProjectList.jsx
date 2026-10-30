@@ -37,7 +37,7 @@ function ProjectList({ projects }) {
                             Ongoing Projects
                         </h2>
                     </div>
-                    <div>
+                    <div className="inner-flex inner-flex-bigger">
                         {projectList.map((project, index) => {
                             const title = project?.project_title || project?.project_name || "";
                             const slug = project?.slug || project?.project_slug || "";
@@ -68,7 +68,6 @@ function ProjectList({ projects }) {
                             const description = getDescription(
                                 project?.big_text_pain ||
                                 project?.big_text ||
-                                project?.page_description ||
                                 ""
                             );
 
@@ -77,7 +76,7 @@ function ProjectList({ projects }) {
                             const openSpace = getHighlight(project, "open space");
                             return (
                                 <div
-                                    className="project-list-item"
+                                    className="project-list-item flex-row inner-flex-big"
                                     key={project?.project_id || project?.id || slug || index}
                                 >
                                     <div className="project-list-image">
@@ -86,8 +85,8 @@ function ProjectList({ projects }) {
                                                 src={originalImage}
                                                 alt={title}
                                                 className="project-list-img"
-                                                width={1980}
-                                                height={900}
+                                                width={884}
+                                                height={1013}
                                             />
                                         )}
                                     </div>
@@ -157,12 +156,18 @@ function ProjectList({ projects }) {
                                             )}
                                         </div>
 
-                                        <Link
-                                            href={slug ? `/ project / ${slug}` : "/projects"}
-                                            className="project-list-explore"
-                                        >
-                                            Explore <span>→</span>
-                                        </Link>
+                                        <div>
+                                            <Link href={slug ? `/${slug}` : "/projects"}>
+                                                <button className="comman-button button-style-primary-outline flex-row alc">
+                                                    <div className="section-content">
+                                                        <p className="lh1">Explore</p>
+                                                    </div>
+                                                    <span className="material-symbols-outlined">
+                                                        arrow_forward
+                                                    </span>
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                             );

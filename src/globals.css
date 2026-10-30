@@ -887,12 +887,6 @@ body.no-scroll-body {
   font-size: 1.25rem;
 }
 
-.button-style-primary:hover {
-  border: 1px solid var(--primary-color);
-  background-color: transparent;
-  transition: var(--common-transition);
-}
-
 .button-style-primary:hover span,
 .button-style-primary:hover p {
   color: var(--primary-color);
@@ -903,6 +897,12 @@ body.no-scroll-body {
   border: 1px solid var(--primary-color);
   background-color: transparent;
   cursor: pointer;
+}
+
+.button-style-primary-outline:hover {
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  transition: var(--common-transition);
 }
 
 .button-style-primary-outline span,
@@ -3433,35 +3433,6 @@ span.readmore_click {
   text-transform: uppercase !important;
 }
 
-.footer-text {
-  font-size: 1.05rem;
-  text-transform: uppercase;
-  line-height: 1.25;
-}
-
-.footer-text:hover {
-  color: var(--secondary-color);
-}
-
-.footer-logo {
-  width: 9rem;
-}
-
-.footer-row {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-}
-
-.footer-row .footer-row-icon {
-  width: 1.25rem;
-  min-width: 1.25rem;
-}
-
-.footer-contact-link {
-  max-width: 360px;
-}
-
 .marginl-auto {
   margin-left: auto;
 }
@@ -3795,21 +3766,6 @@ span.material-symbols-outlined.icon-form-control {
 
 .footer-navigation-link-contact {
   margin-left: -1.75rem;
-}
-
-.footer-logo-withline {
-  position: relative;
-  padding-bottom: 1.5rem;
-}
-
-.footer-logo-withline::after {
-  content: none;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 25%;
-  height: 2px;
-  background-color: var(--primary-color);
 }
 
 .project-glaery-overlay {
@@ -4712,6 +4668,7 @@ label.error {
   .awards-grid {
     grid-template-columns: 100%;
   }
+
   .bannerCard {
     height: unset !important;
     aspect-ratio: 9/14 !important;
@@ -6999,11 +6956,7 @@ label.error {
     background-color: var(--white-color);
     padding: 5rem 0 2rem 0;
   }
-
-  .footer-logo {
-    width: 7rem;
-  }
-
+  
   .section-padding-bottom {
     padding-bottom: 4rem;
   }

@@ -5,10 +5,19 @@
 
 .header_logo {
     width: 5rem;
+}
+
+/* Home Page - White Logo */
+.home-header .header_logo {
     filter: invert(1) brightness(28);
 }
 
-.menubar{
+/* Other Pages - Original Blue Logo */
+.inner-header .header_logo {
+    filter: none;
+}
+
+.menubar {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
@@ -16,4 +25,13 @@
     height: 3.5rem;
     background-color: transparent;
     cursor: pointer;
+}
+
+.site-header {
+    background-color: transparent !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
 }

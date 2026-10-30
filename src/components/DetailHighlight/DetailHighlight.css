@@ -1,0 +1,10 @@
+.project-highlights-image {
+    width: 60%;
+}
+
+.project-highlights-content {
+    padding-top: 4rem;
+    position: sticky;
+    top: 5rem;
+    width: 40%;
+}

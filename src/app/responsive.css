@@ -19,9 +19,7 @@
 
 }
 
-@media only screen and (max-width: 1280px) {
-
-}
+@media only screen and (max-width: 1280px) {}
 
 @media only screen and (max-width: 1152px) {
   html {
@@ -36,7 +34,7 @@
     font-size: 11px;
   }
 
- 
+
 }
 
 @media only screen and (max-width: 991px) {
@@ -74,8 +72,10 @@
     flex-direction: column;
   }
 
- 
-
+  .section-paragraph p,
+  .section-paragraph p span {
+    font-size: 16px;
+  }
 
   .pt0-mob {
     padding-top: 0 !important;
@@ -84,8 +84,6 @@
 
 }
 
-@media only screen and (max-width: 600px) {
-}
+@media only screen and (max-width: 600px) {}
 
-@media only screen and (max-width: 325px) {
-}
+@media only screen and (max-width: 325px) {}

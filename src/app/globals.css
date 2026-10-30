@@ -148,7 +148,7 @@
   --secondary-color: #001871;
   --white-color: #ffffff;
   --highlight-color: #e1e4e8;
-  --gray-color: #8e9194;
+  --gray-color: #8B817C;
   --background-smoke: #fafafa;
   --background-gray: #fafafa;
   --secondary-highlight-color: #953b21;
@@ -156,8 +156,9 @@
   /* font-sizes */
   --banner-title-font-size: 5rem;
   --banner-big-font-size: 7rem;
-  --section-title-big-font-size: 2rem;
+  --section-title-big-font-size: 2.5rem;
   --section-title-font-size: 3rem;
+  --section-title-font-58: 3.625rem;
   --section-subtitle-font-size: 2rem;
   --paragraph-font-size: 1.25rem;
   --content-font-size: 1.125rem;
@@ -175,10 +176,13 @@
   --web-border-radius: 0.625rem;
   --mobile-border-radius: 0.6rem;
   --common-gap-size: 1rem;
-  --small-gap-size: 1.5rem;
+  --small-gap-size: 2rem;
+  --small-gap-content-size: 1.5rem;
   --medium-gap-size: 3rem;
-  --big-gap-size-48: 4rem;
-  --big-gap-size: 6rem;
+  --big-gap-size-64: 4rem;
+  --big-gap-size-96: 6rem;
+  --big-gap-size: 5rem;
+  --bigger-gap-size: 8rem;
 }
 
 /* Custom scrollbar for Webkit browsers (Chrome, Safari) */
@@ -425,6 +429,7 @@ img {
   max-width: 100%;
   transition: var(--common-transition);
   width: 100%;
+  height: 100%;
   object-fit: cover;
   cursor: pointer;
   display: block;
@@ -605,6 +610,10 @@ button:focus-visible {
   gap: var(--small-gap-size);
 }
 
+.inner-flex-small-content {
+  gap: var(--small-gap-content-size);
+}
+
 .inner-flex-small-24 {
   gap: var(--small-gap-size-24);
 }
@@ -633,16 +642,20 @@ button:focus-visible {
   gap: var(--big-gap-size);
 }
 
-.inner-flex-big-48 {
-  gap: var(--big-gap-size-48);
+.inner-flex-bigger {
+  gap: var(--bigger-gap-size);
+}
+
+.inner-flex-big-64 {
+  gap: var(--big-gap-size-64);
+}
+
+.inner-flex-big-96 {
+  gap: var(--big-gap-size-96);
 }
 
 .inner-flex-zero {
   gap: 0;
-}
-
-.big-gap {
-  gap: var(--big-gap-size) !important;
 }
 
 .inner-flex-large {
@@ -843,6 +856,13 @@ button:focus-visible {
   letter-spacing: 3%;
 }
 
+.section-title-big h3,
+.section-title-big h2 {
+  font-size: var(--section-title-font-58);
+  font-family: var(--semibold-font-family);
+  letter-spacing: 3%;
+}
+
 .section-title h3 span,
 .section-title h2 span {
   font-size: var(--section-title-font-size-48);
@@ -894,7 +914,11 @@ button:focus-visible {
 }
 
 .lh5 {
-  line-height: 1.5;
+  line-height: 1.5 !important;
+}
+
+.lh1 {
+  line-height: 1 !important;
 }
 
 .section-content p {
@@ -946,6 +970,14 @@ button:focus-visible {
   color: var(--primary-color);
 }
 
+
+.section-subtitle-medium h2,
+.section-subtitle-medium h3 span {
+  font-size: var(--section-title-big-font-size);
+  font-family: var(--regular-font-family);
+  line-height: 1.5;
+}
+
 .section-subtitle h4 span {
   color: var(--secondary-color);
 }
@@ -958,26 +990,6 @@ button:focus-visible {
 .link-font-size a p span.material-symbols-outlined,
 .link-font-size p {
   font-size: var(--link-font-size);
-}
-
-.smarthomes-button {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.875rem 1rem;
-  transition: var(--common-transition);
-  border-radius: 0;
-  width: fit-content;
-  justify-content: center;
-  outline: unset;
-  cursor: pointer;
-}
-
-.smarthomes-button p,
-.smarthomes-button span {
-  line-height: 1 !important;
-  font-size: 1.25rem;
-  font-family: var(--medium-font-family);
 }
 
 .button-style-primary {
@@ -1063,4 +1075,43 @@ button:focus-visible {
 .footer-hover a:hover {
   transition: var(--common-transition);
   text-decoration: underline;
+}
+
+
+.comman-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .875rem 1.5rem;
+  transition: var(--common-transition);
+  border-radius: 2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button-style-primary-outline {
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button-style-primary-outline:hover p,
+.button-style-primary-outline:hover span {
+  color: var(--white-color);
+  transition: var(--common-transition);
+}
+
+.button-style-primary-outline:hover {
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  transition: var(--common-transition);
+}
+
+.bg_palm {
+  background: linear-gradient(110deg,
+      #622b24 0%,
+      #4b211c 55%,
+      #321712 100%);
 }
