@@ -4,6 +4,12 @@ import api from "@/helper/api.interceptor";
 import DetailBanner from "@/components/DetailBanner/DetailBanner";
 import DetailAbout from "@/components/DetailAbout/DetailAbout";
 import DetailHighlight from "@/components/DetailHighlight/DetailHighlight";
+import DetailGallery from "@/components/DetailGallery/DetailGallery";
+import DetailNatural from "@/components/DetailNatural/DetailNatural";
+import DetailCertificates from "@/components/DetailCertificates/DetailCertificates";
+import ConstructionUpdate from "@/components/ConstructionUpdate/ConstructionUpdate";
+import getProjectThemeClass from "@/helper/projectTheme";
+import DetailAmenities from "@/components/DetailAmenities/DetailAmenities";
 
 const getProjectDetail = cache(async (slug) => {
     return api.PropertyDetail(slug);
@@ -40,11 +46,16 @@ async function Page({ params }) {
     }
 
     return (
-        <>
+        <div className={getProjectThemeClass(projectData)}>
             <DetailBanner project={projectData} />
             <DetailAbout project={projectData} />
-            <DetailHighlight project={projectData}/>
-        </>
+            <DetailHighlight project={projectData} />
+            <DetailGallery project={projectData} />
+            <DetailAmenities project={projectData} />
+            <DetailNatural />
+            <DetailCertificates />
+            <ConstructionUpdate project={projectData} />
+        </div>
     );
 }
 

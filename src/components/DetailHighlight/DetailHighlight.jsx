@@ -10,18 +10,18 @@ function DetailHighlight({ project }) {
     const highlights = project?.highlights || [];
 
     const highlightImages = {
-        "880": "/images/projects/palm.webp",
-        "881": "/images/projects/life-in-blue-highlight.jpg",
-        "887": "/images/projects/urban-exchange-highlight.jpg",
-        "888": "/images/projects/urban-exchange-highlight.jpg",
+        "880": "/images/detail/palm.webp",
+        "881": "/images/detail/palm.webp",
+        "887": "/images/detail/palm.webp",
+        "888": "/images/detail/palm.webp",
     };
 
     const highlightImage = highlightImages[String(project.project_id)];
 
     return (
-        <section className="project-highlights main-container-fluid">
-            <div className="section-padding-half">
-                <div className="flex-row inner-flex-big-96">
+        <section className="project-highlights section-padding-half white-background">
+            <div className="main-container-fluid">
+                <div className="flex-row inner-flex-big-96 project-high">
                     <div className="project-highlights-image">
                         {highlightImage && (
                             <Image

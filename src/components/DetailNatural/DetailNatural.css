@@ -1,0 +1,23 @@
+.natural-text {
+    width: 30%;
+    align-content: end;
+}
+
+.natural-image {
+    width: 60%;
+}
+
+@media (max-width: 991px) {
+    .nature_detail {
+        flex-direction: column;
+    }
+
+    .natural-text {
+        width: 100%;
+        align-content: none;
+    }
+
+    .natural-image {
+        width: 100%;
+    }
+}

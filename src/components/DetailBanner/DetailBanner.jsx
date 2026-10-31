@@ -35,7 +35,7 @@ function DetailBanner({ project }) {
     return (
         <section className="detail-banner">
 
-            <div className="detail-banner-top  section-padding-half bg_palm">
+            <div className="detail-banner-top  section-padding-half">
                 <div className="main-container-fluid">
                     <div className="detail-banner-content inner-flex inner-flex-small-content">
                         <div className="detail-banner-logo">

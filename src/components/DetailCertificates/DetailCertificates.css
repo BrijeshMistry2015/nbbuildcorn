@@ -1,0 +1,10 @@
+.certificate_section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 991px) {
+    .certificate_section {
+        grid-template-columns: 100%;
+    }
+}

@@ -1,0 +1,101 @@
+.detail-gallery__tagline {
+    font-size: 8rem;
+}
+
+.detail-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.detail-gallery__item {
+    grid-column: span 1;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: rgb(0 0 0 / 18%);
+}
+
+.detail-gallery__item[hidden] {
+    display: none;
+    
+}
+
+.detail-gallery__item::after {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 30%);
+    content: "";
+    opacity: 0;
+    transition: opacity 250ms ease;
+}
+
+.detail-gallery__item img {
+    object-fit: cover;
+    transition: transform 450ms ease;
+}
+
+.f-caption,
+.f-thumbs {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .detail-gallery__item img,
+    .detail-gallery__item::after,
+    .detail-gallery__view {
+        transition: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .detail-gallery__view {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        display: grid;
+        width: 108px;
+        aspect-ratio: 1;
+        place-items: center;
+        border: 1px solid rgb(255 255 255 / 85%);
+        border-radius: 50%;
+        color: #fff;
+        font-family: var(--regular-font-family);
+        font-size: 1rem;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 250ms ease;
+    }
+
+    .detail-gallery__item:hover::after,
+    .detail-gallery__item:hover .detail-gallery__view,
+    .detail-gallery__item:focus-visible::after,
+    .detail-gallery__item:focus-visible .detail-gallery__view {
+        opacity: 1;
+    }
+
+    .detail-gallery__item:hover img {
+        transform: scale(1.035);
+    }
+
+    .detail-gallery__item:first-child {
+        grid-column: span 2;
+        aspect-ratio: 2 / 1;
+    }
+
+    .detail-gallery__item--wide {
+        grid-column: 1 / -1;
+        aspect-ratio: 3 / 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .detail-gallery__grid {
+        grid-template-columns: 100%;
+    }
+
+    .detail-gallery__tagline {
+        font-size: 3rem;
+    }
+}

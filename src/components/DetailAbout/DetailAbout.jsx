@@ -11,7 +11,7 @@ function DetailAbout({ project }) {
     if (!description) return null;
 
     return (
-        <section className="section-padding-half bg_palm">
+        <section className="section-padding-half">
             <div className="main-container">
                 <div className="inner-flex">
                     <div className="section-paragraph">
